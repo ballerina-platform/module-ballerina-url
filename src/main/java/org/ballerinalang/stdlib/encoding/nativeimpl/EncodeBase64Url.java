@@ -26,27 +26,29 @@ import org.ballerinalang.model.values.BValueArray;
 import org.ballerinalang.natives.annotations.Argument;
 import org.ballerinalang.natives.annotations.BallerinaFunction;
 import org.ballerinalang.natives.annotations.ReturnType;
-import org.ballerinalang.stdlib.encoding.EncodingUtil;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 /**
- * Extern function ballerina.encoding:encodeHex.
+ * Extern function ballerina.encoding:encodeBase64Url.
  *
- * @since 0.990.3
+ * @since 0.991.0
  */
 @BallerinaFunction(
-        orgName = "ballerina", packageName = "encoding", functionName = "encodeHex",
+        orgName = "ballerina", packageName = "encoding", functionName = "encodeBase64Url",
         args = {
                 @Argument(name = "input", type = TypeKind.ARRAY, elementType = TypeKind.BYTE)
         },
         returnType = {@ReturnType(type = TypeKind.STRING)},
         isPublic = true
 )
-public class EncodeHex extends BlockingNativeCallableUnit {
+public class EncodeBase64Url extends BlockingNativeCallableUnit {
 
     @Override
     public void execute(Context context) {
         BValueArray input = (BValueArray) context.getRefArgument(0);
-        String output = EncodingUtil.encodeHex(input.getBytes());
-        context.setReturnValues(new BString(output));
+        byte[] encodedValue = Base64.getUrlEncoder().encode(input.getBytes());
+        context.setReturnValues(new BString(new String(encodedValue, StandardCharsets.ISO_8859_1)));
     }
 }

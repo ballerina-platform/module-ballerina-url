@@ -21,32 +21,43 @@ package org.ballerinalang.stdlib.encoding.nativeimpl;
 import org.ballerinalang.bre.Context;
 import org.ballerinalang.bre.bvm.BlockingNativeCallableUnit;
 import org.ballerinalang.model.types.TypeKind;
-import org.ballerinalang.model.values.BString;
 import org.ballerinalang.model.values.BValueArray;
 import org.ballerinalang.natives.annotations.Argument;
 import org.ballerinalang.natives.annotations.BallerinaFunction;
 import org.ballerinalang.natives.annotations.ReturnType;
+import org.ballerinalang.stdlib.encoding.Constants;
 import org.ballerinalang.stdlib.encoding.EncodingUtil;
 
+import java.util.Base64;
+
 /**
- * Extern function ballerina.encoding:encodeHex.
+ * Extern function ballerina.encoding:decodeBase64Url.
  *
- * @since 0.990.3
+ * @since 0.991.0
  */
 @BallerinaFunction(
-        orgName = "ballerina", packageName = "encoding", functionName = "encodeHex",
+        orgName = "ballerina", packageName = "encoding", functionName = "decodeBase64Url",
         args = {
-                @Argument(name = "input", type = TypeKind.ARRAY, elementType = TypeKind.BYTE)
+                @Argument(name = "input", type = TypeKind.STRING)
         },
-        returnType = {@ReturnType(type = TypeKind.STRING)},
+        returnType = {
+                @ReturnType(type = TypeKind.ARRAY, elementType = TypeKind.BYTE),
+                @ReturnType(type = TypeKind.RECORD, structType = Constants.ENCODING_ERROR,
+                        structPackage = Constants.ENCODING_PACKAGE)
+        },
         isPublic = true
 )
-public class EncodeHex extends BlockingNativeCallableUnit {
+public class DecodeBase64Url extends BlockingNativeCallableUnit {
 
     @Override
     public void execute(Context context) {
-        BValueArray input = (BValueArray) context.getRefArgument(0);
-        String output = EncodingUtil.encodeHex(input.getBytes());
-        context.setReturnValues(new BString(output));
+        String input = context.getStringArgument(0);
+        try {
+            byte[] output = Base64.getUrlDecoder().decode(input);
+            context.setReturnValues(new BValueArray(output));
+        } catch (IllegalArgumentException e) {
+            context.setReturnValues(EncodingUtil.createEncodingError(context, "input is not a valid Base64 URL " +
+                    "encoded value"));
+        }
     }
 }
