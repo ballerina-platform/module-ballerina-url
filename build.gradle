@@ -19,19 +19,19 @@ plugins {
     id "com.github.spotbugs" version "4.0.5"
     id "com.github.johnrengelman.shadow" version "5.2.0"
     id "de.undercouch.download" version "4.0.4"
-    id 'maven-publish'
 }
 
-ext.ballerinaLangVersion = '1.3.0-SNAPSHOT'
+ext.ballerinaLangVersion = project.version
 ext.puppycrawlCheckstyleVersion = "8.18"
 ext.testngVersion = "6.14.3"
 ext.slf4jVersion = "1.7.30"
 
 allprojects {
     group = 'org.ballerinalang'
-    version = '1.3.0-SNAPSHOT'
+    version = project.version
 
     apply plugin: 'jacoco'
+    apply plugin: 'maven-publish'
 
     repositories {
         mavenLocal()
@@ -53,6 +53,10 @@ allprojects {
 
         maven {
             url = 'https://repo.maven.apache.org/maven2'
+        }
+
+        maven {
+            url = 'https://maven.pkg.github.com/ballerina-platform/module-ballerina-encoding'
         }
     }
 }
