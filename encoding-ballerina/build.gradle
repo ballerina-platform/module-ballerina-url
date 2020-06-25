@@ -59,73 +59,101 @@ task unzip {
     }
 }
 
-def artifactEncodingBallerinaBirDir = file("$project.projectDir/target/caches/bir_cache/")
-def artifactEncodingBallerinaJar = file("$project.projectDir/target/caches/jar_cache/ballerina/encoding/ballerina.encoding.jar")
-def balEncodingJar =  file("$project.projectDir/build/libs/ballerina-encoding-${ballerinaLangVersion}.jar")
+def moduleName = "encoding"
+def moduleOrg = "ballerina"
+def ballerinaConfigFile = new File("$project.projectDir/Ballerina.toml")
+def artifactBallerinaDocs = file("$project.projectDir/build/docs_parent/")
+def artifactCacheParent = file("$project.projectDir/build/cache_parent/")
+def artifactLibParent = file("$project.projectDir/build/lib_parent/")
+def tomlVersion = project.version.split("-")[0]
+def ballerinaCentralAccessToken = System.getenv('BALLERINA_CENTRAL_ACCESS_TOKEN')
+def targetBallerinaJar = file("$project.projectDir/target/caches/jar_cache/${moduleOrg}/${moduleName}/${tomlVersion}/${moduleOrg}-${moduleName}-${tomlVersion}.jar")
 
 task ballerinaBuild {
     dependsOn unzip
     inputs.dir file(project.projectDir)
     doLast {
-        def ballerinaConfigFile = new File("$project.projectDir/Ballerina.toml")
         def originalConfig = ballerinaConfigFile.text
         def newConfig = ballerinaConfigFile.text.replace("@project.version@", project.version)
+        newConfig = newConfig.replace("@toml.version@", tomlVersion)
         ballerinaConfigFile.text = newConfig
 
         def distributionBinPath =  project.projectDir.absolutePath + "/build/extracted-distribution/jballerina-tools-${ballerinaLangVersion}/bin"
+
+        // Build and populate caches
         exec {
             workingDir project.projectDir
             environment "JAVA_OPTS", "-DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true"
             if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat build --code-coverage -c -a"
+                commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat build -c ${moduleName}"
             } else {
-                commandLine 'sh', '-c', "$distributionBinPath/ballerina build --code-coverage -c -a "
-            }
-        }
-        exec {
-            workingDir project.projectDir
-            environment "JAVA_OPTS", "-DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true"
-            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat doc -a"
-            } else {
-                commandLine 'sh', '-c', "$distributionBinPath/ballerina doc -a "
+                commandLine 'sh', '-c', "$distributionBinPath/ballerina build -c ${moduleName}"
             }
         }
         copy {
-            // Copying the jar from ballerina build
-            from "$project.projectDir/target/caches/jar_cache/ballerina/encoding/ballerina-encoding-.jar"
-            into "$project.projectDir/target/caches/jar_cache/ballerina/encoding/"
-            rename { String fileName ->
-                fileName.replace("ballerina-encoding-.jar", artifactEncodingBallerinaJar.getName())
-            }
-        }
-        // Copy the BIR to the 0.0.0 folder within it
-        ant.move file: "${artifactEncodingBallerinaBirDir}/ballerina/encoding/encoding.bir",
-                todir: "${artifactEncodingBallerinaBirDir}/ballerina/encoding/0.0.0/"
-        copy {
-            // Copy the TOML to the same folder as the BIR
             from file("$project.projectDir/Ballerina.toml")
-            into file("${artifactEncodingBallerinaBirDir}/ballerina/encoding/0.0.0")
+            into file("$artifactCacheParent/caches/bir/${moduleOrg}/${moduleName}/${tomlVersion}")
+        }
+        copy {
+            from file("$project.projectDir/Ballerina.toml")
+            into file("$artifactCacheParent/caches/balo/${moduleOrg}/${moduleName}/${tomlVersion}")
+        }
+        copy {
+            from file("$project.projectDir/Ballerina.toml")
+            into file("$artifactCacheParent/caches/jar/${moduleOrg}/${moduleName}/${tomlVersion}")
+        }
+        copy {
+            from file("$project.projectDir/target/caches/bir_cache")
+            into file("$artifactCacheParent/caches/bir")
+        }
+        copy {
+            from file("$project.projectDir/target/balo")
+            into file("$artifactCacheParent/caches/balo/${moduleOrg}/${moduleName}/${tomlVersion}")
+        }
+        copy {
+            from targetBallerinaJar
+            into file("$artifactCacheParent/caches/jar/${moduleOrg}/${moduleName}/${tomlVersion}")
         }
 
         copy {
-            from "$project.projectDir/build/libs/encoding-generator-${ballerinaLangVersion}.jar"
-            into "$project.projectDir/build/libs/"
-            rename { String fileName ->
-                fileName.replace("encoding-generator-${ballerinaLangVersion}.jar", balEncodingJar.getName())
+            from targetBallerinaJar
+            into file("$artifactLibParent/libs")
+        }
+
+        // Publish to central
+        if (!project.version.endsWith('-SNAPSHOT') && ballerinaCentralAccessToken != null && project.hasProperty("publishToCentral")) {
+            println("Publishing to the ballerina central..")
+            exec {
+                workingDir project.projectDir
+                environment "JAVA_OPTS", "-DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true"
+                if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+                    commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat push ${moduleName}"
+                } else {
+                    commandLine 'sh', '-c', "$distributionBinPath/ballerina push ${moduleName}"
+                }
             }
+
+        }
+        // Doc creation and packing
+        exec {
+            workingDir project.projectDir
+            environment "JAVA_OPTS", "-DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true"
+            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+                commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat doc ${moduleName}"
+            } else {
+                commandLine 'sh', '-c', "$distributionBinPath/ballerina doc ${moduleName}"
+            }
+        }
+        copy {
+            from file("$project.projectDir/target/apidocs/${moduleName}")
+            into file("$project.projectDir/build/docs_parent/docs/${moduleName}")
         }
         ballerinaConfigFile.text = originalConfig
     }
-    outputs.dir artifactEncodingBallerinaBirDir
-    outputs.file artifactEncodingBallerinaJar
-}
 
-artifacts {
-
-    encodingBallerinaBirDir file: artifactEncodingBallerinaBirDir, builtBy: ballerinaBuild
-    encodingBallerinaJar file: artifactEncodingBallerinaJar, builtBy: ballerinaBuild
-
+    outputs.dir artifactCacheParent
+    outputs.dir artifactBallerinaDocs
+    outputs.dir artifactLibParent
 }
 
 task createArtifactZip(type: Zip) {
@@ -150,5 +178,6 @@ publishing {
         }
     }
 }
+
 ballerinaBuild.dependsOn ":encoding-native:build"
 build.dependsOn ballerinaBuild
