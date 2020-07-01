@@ -24,13 +24,13 @@ import org.apache.tools.ant.taskdefs.condition.Os
 description = 'Ballerina - Encoding Ballerina'
 
 configurations {
-    balTools
+    jbalTools
     encodingBallerinaBirDir
     encodingBallerinaJar
 }
 
 dependencies {
-    balTools ("org.ballerinalang:jballerina-tools:${ballerinaLangVersion}") {
+    jbalTools ("org.ballerinalang:jballerina-tools:${ballerinaLangVersion}") {
         transitive = false
     }
     compile project(':encoding-native')
@@ -48,14 +48,10 @@ jar {
     }
 }
 
-task unzip {
-    doLast {
-        configurations.balTools.resolvedConfiguration.resolvedArtifacts.each { artifact ->
-            copy {
-                from project.zipTree(artifact.getFile())
-                into new File(project.buildDir, "extracted-distribution/")
-            }
-        }
+task unpackJballerinaTools(type: Copy) {
+    configurations.jbalTools.resolvedConfiguration.resolvedArtifacts.each { artifact ->
+        from zipTree(artifact.getFile())
+        into new File("${buildDir}/target/extracted-distributions", "jballerina-tools-zip")
     }
 }
 
@@ -68,9 +64,9 @@ def artifactLibParent = file("$project.projectDir/build/lib_parent/")
 def tomlVersion = project.version.split("-")[0]
 def ballerinaCentralAccessToken = System.getenv('BALLERINA_CENTRAL_ACCESS_TOKEN')
 def targetBallerinaJar = file("$project.projectDir/target/caches/jar_cache/${moduleOrg}/${moduleName}/${tomlVersion}/${moduleOrg}-${moduleName}-${tomlVersion}.jar")
+def targetNativeJar = file("$project.rootDir/encoding-native/build/libs/encoding-native-${project.version}.jar")
 
 task ballerinaBuild {
-    dependsOn unzip
     inputs.dir file(project.projectDir)
     doLast {
         def originalConfig = ballerinaConfigFile.text
@@ -78,7 +74,7 @@ task ballerinaBuild {
         newConfig = newConfig.replace("@toml.version@", tomlVersion)
         ballerinaConfigFile.text = newConfig
 
-        def distributionBinPath =  project.projectDir.absolutePath + "/build/extracted-distribution/jballerina-tools-${ballerinaLangVersion}/bin"
+        def distributionBinPath =  project.projectDir.absolutePath + "/build/target/extracted-distributions/jballerina-tools-zip/jballerina-tools-${ballerinaLangVersion}/bin"
 
         // Build and populate caches
         exec {
@@ -117,6 +113,11 @@ task ballerinaBuild {
 
         copy {
             from targetBallerinaJar
+            into file("$artifactLibParent/libs")
+        }
+
+        copy {
+            from targetNativeJar
             into file("$artifactLibParent/libs")
         }
 
@@ -180,4 +181,5 @@ publishing {
 }
 
 ballerinaBuild.dependsOn ":encoding-native:build"
+ballerinaBuild.dependsOn unpackJballerinaTools
 build.dependsOn ballerinaBuild
