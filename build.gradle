@@ -68,7 +68,6 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-    apply plugin: 'maven-publish'
 
     release {
         // Disable check snapshots temporarily
