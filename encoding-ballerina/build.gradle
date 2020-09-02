@@ -242,6 +242,6 @@ publishing {
 ballerinaBuild.dependsOn ":encoding-native:build"
 unpackStdLibs.dependsOn unpackJballerinaTools
 copyStdlibs.dependsOn unpackStdLibs
-updateTomlVerions.dependsOn copyStdlibs
-ballerinaBuild.dependsOn updateTomlVerions
+updateTomlVersions.dependsOn copyStdlibs
+ballerinaBuild.dependsOn updateTomlVersions
 build.dependsOn ballerinaBuild
