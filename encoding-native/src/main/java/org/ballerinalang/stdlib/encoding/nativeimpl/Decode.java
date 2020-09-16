@@ -18,9 +18,9 @@
 
 package org.ballerinalang.stdlib.encoding.nativeimpl;
 
-import org.ballerinalang.jvm.StringUtils;
-import org.ballerinalang.jvm.values.api.BString;
-import org.ballerinalang.jvm.values.api.BValueCreator;
+import org.ballerinalang.jvm.api.BStringUtils;
+import org.ballerinalang.jvm.api.BValueCreator;
+import org.ballerinalang.jvm.api.values.BString;
 import org.ballerinalang.stdlib.encoding.EncodingUtil;
 
 import java.io.UnsupportedEncodingException;
@@ -47,7 +47,7 @@ public class Decode {
 
     public static Object decodeUriComponent(BString url, BString charset) {
         try {
-            return StringUtils.fromString(URLDecoder.decode(url.getValue(), charset.getValue()));
+            return BStringUtils.fromString(URLDecoder.decode(url.getValue(), charset.getValue()));
         } catch (UnsupportedEncodingException e) {
             return EncodingUtil
                     .createError("Error occurred while decoding the URI component. " + e.getMessage(), DECODING_ERROR);
