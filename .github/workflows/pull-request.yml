@@ -1,4 +1,4 @@
-name: Ballerina encoding module build
+name: PR build
 
 on: [push, pull_request]
 
