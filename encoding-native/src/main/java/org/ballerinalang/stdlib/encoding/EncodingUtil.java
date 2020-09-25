@@ -31,10 +31,6 @@ import static org.ballerinalang.stdlib.encoding.Constants.ENCODING_PACKAGE_ID;
  */
 public class EncodingUtil {
 
-    private EncodingUtil() {
-
-    }
-
     /**
      * Create encoding error.
      *
