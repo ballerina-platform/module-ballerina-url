@@ -15,24 +15,8 @@
  *
  */
 
-plugins {
-    id 'java'
-}
-apply from: "$rootDir/gradle/javaProject.gradle"
-
-description = 'Ballerina - Encoding Java Native Implementation'
-
-dependencies {
-    compile group: 'org.ballerinalang', name: 'ballerina-lang', version: "${ballerinaLangVersion}"
-    compile group: 'org.ballerinalang', name: 'ballerina-runtime', version: "${ballerinaLangVersion}"
-    compile group: 'org.slf4j', name: 'slf4j-jdk14', version: "${slf4jVersion}"
-}
-
-compileJava {
-    doFirst {
-        options.compilerArgs = [
-                '--module-path', classpath.asPath,
-        ]
-        classpath = files()
-    }
+module io.ballerina.stdlib.encoding {
+    requires io.ballerina.jvm;
+    requires org.slf4j;
+    exports org.ballerinalang.stdlib.encoding.nativeimpl;
 }
