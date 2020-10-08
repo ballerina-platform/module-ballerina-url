@@ -17,6 +17,5 @@
 
 module io.ballerina.stdlib.encoding {
     requires io.ballerina.jvm;
-    requires org.slf4j;
     exports org.ballerinalang.stdlib.encoding.nativeimpl;
 }
