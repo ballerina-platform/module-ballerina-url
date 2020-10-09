@@ -15,21 +15,7 @@
  *
  */
 
-plugins {
-    id 'java'
-}
-
-description = 'Ballerina - Encoding Java Native Implementation'
-
-dependencies {
-    compile group: 'org.ballerinalang', name: 'ballerina-runtime', version: "${ballerinaLangVersion}"
-}
-
-compileJava {
-    doFirst {
-        options.compilerArgs = [
-                '--module-path', classpath.asPath,
-        ]
-        classpath = files()
-    }
+module io.ballerina.stdlib.encoding {
+    requires io.ballerina.jvm;
+    exports org.ballerinalang.stdlib.encoding.nativeimpl;
 }
