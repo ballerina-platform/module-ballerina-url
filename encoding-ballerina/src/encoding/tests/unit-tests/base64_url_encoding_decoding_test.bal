@@ -24,9 +24,7 @@ public function testEncodeBase64Url() {
     test:assertEquals(result, expectedValue, msg = "Unexpected base64 encoding.");
 }
 
-@test:Config {
-    dependsOn: ["testEncodeBase64Url"]
-}
+@test:Config {}
 public function testDecodeBase64Url() {
     string input = "QmFsbGVyaW5hIEJhc2U2NCBVUkwgZW5jb2RpbmcgdGVzdA";
     string encodedString = "Ballerina Base64 URL encoding test";

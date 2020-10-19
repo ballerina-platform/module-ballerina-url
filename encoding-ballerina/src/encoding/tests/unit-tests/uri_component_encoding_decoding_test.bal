@@ -14,8 +14,8 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/test;
 import ballerina/stringutils;
+import ballerina/test;
 
 @test:Config {}
 function testEncode() {
@@ -44,9 +44,7 @@ function testEncode() {
     }
 }
 
-@test:Config {
-    dependsOn: ["testEncode"]
-}
+@test:Config {}
 function testInvalidEncode() {
     string url = "http://localhost:9090/echoService#abc";
     string|Error result = encodeUriComponent(url, "abc");
@@ -58,9 +56,7 @@ function testInvalidEncode() {
     }
 }
 
-@test:Config {
-    dependsOn: ["testInvalidEncode"]
-}
+@test:Config {}
 function testSimpleUrlDecode() {
     string encodedUrlValue = "http%3A%2F%2Flocalhost%3A9090";
     string|Error result = decodeUriComponent(encodedUrlValue, "UTF-8");
@@ -72,9 +68,7 @@ function testSimpleUrlDecode() {
     }
 }
 
-@test:Config {
-    dependsOn: ["testSimpleUrlDecode"]
-}
+@test:Config {}
 function testUrlDecodeWithSpaces() {
     string encodedUrlValue = "http%3A%2F%2Flocalhost%3A9090%2FechoService%2Fhello%20world%2F";
     string|Error result = decodeUriComponent(encodedUrlValue, "UTF-8");
@@ -87,9 +81,7 @@ function testUrlDecodeWithSpaces() {
     }
 }
 
-@test:Config {
-    dependsOn: ["testUrlDecodeWithSpaces"]
-}
+@test:Config {}
 function testUrlDecodeWithHashSign() {
     string encodedUrlValue = "http%3A%2F%2Flocalhost%3A9090%2FechoService%23abc";
     string|Error result = decodeUriComponent(encodedUrlValue, "UTF-8");
@@ -102,9 +94,7 @@ function testUrlDecodeWithHashSign() {
     }
 }
 
-@test:Config {
-    dependsOn: ["testUrlDecodeWithHashSign"]
-}
+@test:Config {}
 function testUrlDecodeWithColon() {
     string encodedUrlValue = "http%3A%2F%2Flocalhost%3A9090%2FechoService%3Aabc";
     string|Error result = decodeUriComponent(encodedUrlValue, "UTF-8");
@@ -117,9 +107,7 @@ function testUrlDecodeWithColon() {
     }
 }
 
-@test:Config {
-    dependsOn: ["testUrlDecodeWithColon"]
-}
+@test:Config {}
 function testUrlDecodeWithPlusSign() {
     string encodedUrlValue = "http%3A%2F%2Flocalhost%3A9090%2FechoService%2Babc";
     string|Error result = decodeUriComponent(encodedUrlValue, "UTF-8");
@@ -132,9 +120,7 @@ function testUrlDecodeWithPlusSign() {
     }
 }
 
-@test:Config {
-    dependsOn: ["testUrlDecodeWithPlusSign"]
-}
+@test:Config {}
 function testUrlDecodeWithAsterisk() {
     string encodedUrlValue = "http%3A%2F%2Flocalhost%3A9090%2FechoService%2Aabc";
     string|Error result = decodeUriComponent(encodedUrlValue, "UTF-8");
@@ -147,9 +133,7 @@ function testUrlDecodeWithAsterisk() {
     }
 }
 
-@test:Config {
-    dependsOn: ["testUrlDecodeWithAsterisk"]
-}
+@test:Config {}
 function testUrlDecodeWithPercentageMark() {
     string encodedUrlValue = "http%3A%2F%2Flocalhost%3A9090%2FechoService%25abc";
     string|Error result = decodeUriComponent(encodedUrlValue, "UTF-8");
@@ -162,9 +146,7 @@ function testUrlDecodeWithPercentageMark() {
     }
 }
 
-@test:Config {
-    dependsOn: ["testUrlDecodeWithPercentageMark"]
-}
+@test:Config {}
 function testUrlDecodeWithTilde() {
     string encodedUrlValue = "http%3A%2F%2Flocalhost%3A9090%2FechoService~abc";
     string|Error result = decodeUriComponent(encodedUrlValue, "UTF-8");
@@ -177,9 +159,7 @@ function testUrlDecodeWithTilde() {
     }
 }
 
-@test:Config {
-    dependsOn: ["testUrlDecodeWithTilde"]
-}
+@test:Config {}
 function testInvalidDecode() {
     string url = "http%3A%2F%2Flocalhost%3A9090%2FechoService~abc";
     string|Error result = decodeUriComponent(url, "abc");
