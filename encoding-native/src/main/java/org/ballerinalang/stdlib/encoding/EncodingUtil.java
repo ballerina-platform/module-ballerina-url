@@ -18,9 +18,9 @@
 
 package org.ballerinalang.stdlib.encoding;
 
-import org.ballerinalang.jvm.api.BErrorCreator;
-import org.ballerinalang.jvm.api.BStringUtils;
-import org.ballerinalang.jvm.api.values.BError;
+import io.ballerina.runtime.api.ErrorCreator;
+import io.ballerina.runtime.api.StringUtils;
+import io.ballerina.runtime.api.values.BError;
 
 import static org.ballerinalang.stdlib.encoding.Constants.ENCODING_PACKAGE_ID;
 
@@ -39,6 +39,6 @@ public class EncodingUtil {
      * @return conversion error
      */
     public static BError createError(String errMsg, String typeId) {
-        return BErrorCreator.createDistinctError(typeId, ENCODING_PACKAGE_ID, BStringUtils.fromString(errMsg));
+        return ErrorCreator.createDistinctError(typeId, ENCODING_PACKAGE_ID, StringUtils.fromString(errMsg));
     }
 }

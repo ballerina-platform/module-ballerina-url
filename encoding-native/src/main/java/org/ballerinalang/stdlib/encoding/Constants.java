@@ -18,9 +18,9 @@
 
 package org.ballerinalang.stdlib.encoding;
 
-import org.ballerinalang.jvm.types.BPackage;
+import io.ballerina.runtime.api.Module;
 
-import static org.ballerinalang.jvm.util.BLangConstants.BALLERINA_BUILTIN_PKG_PREFIX;
+import static io.ballerina.runtime.util.BLangConstants.BALLERINA_BUILTIN_PKG_PREFIX;
 
 /**
  * Constants related to encoding module.
@@ -28,8 +28,8 @@ import static org.ballerinalang.jvm.util.BLangConstants.BALLERINA_BUILTIN_PKG_PR
 public class Constants {
 
     public static final String PACKAGE_NAME = "encoding";
-    public static final BPackage ENCODING_PACKAGE_ID =
-            new BPackage(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME, "1.0.3");
+    public static final Module ENCODING_PACKAGE_ID =
+            new Module(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME, "1.0.3");
     // Error type IDs
     public static final String ENCODING_ERROR = "EncodingError";
     public static final String DECODING_ERROR = "DecodingError";

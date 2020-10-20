@@ -16,6 +16,6 @@
  */
 
 module io.ballerina.stdlib.encoding {
-    requires io.ballerina.jvm;
+    requires io.ballerina.runtime;
     exports org.ballerinalang.stdlib.encoding.nativeimpl;
 }
