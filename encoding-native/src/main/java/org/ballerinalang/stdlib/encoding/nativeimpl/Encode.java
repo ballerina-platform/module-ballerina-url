@@ -18,9 +18,9 @@
 
 package org.ballerinalang.stdlib.encoding.nativeimpl;
 
-import org.ballerinalang.jvm.api.BStringUtils;
-import org.ballerinalang.jvm.api.values.BString;
-import org.ballerinalang.jvm.values.ArrayValue;
+import io.ballerina.runtime.api.StringUtils;
+import io.ballerina.runtime.api.values.BString;
+import io.ballerina.runtime.values.ArrayValue;
 import org.ballerinalang.stdlib.encoding.EncodingUtil;
 
 import java.net.URLEncoder;
@@ -38,7 +38,7 @@ public class Encode {
 
     public static BString encodeBase64Url(ArrayValue input) {
         byte[] encodedValue = Base64.getUrlEncoder().withoutPadding().encode(input.getBytes());
-        return BStringUtils.fromString(new String(encodedValue, StandardCharsets.ISO_8859_1));
+        return StringUtils.fromString(new String(encodedValue, StandardCharsets.ISO_8859_1));
     }
 
     public static Object encodeUriComponent(BString url, BString charset) {
@@ -61,7 +61,7 @@ public class Encode {
                 }
 
             }
-            return BStringUtils.fromString(buf.toString());
+            return StringUtils.fromString(buf.toString());
         } catch (Throwable e) {
             return EncodingUtil
                     .createError("Error occurred while encoding the URI component. " + e.getMessage(), ENCODING_ERROR);
