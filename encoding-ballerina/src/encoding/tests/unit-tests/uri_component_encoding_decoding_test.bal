@@ -14,7 +14,6 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/stringutils;
 import ballerina/test;
 
 @test:Config {}
@@ -34,10 +33,10 @@ function testEncode() {
     foreach var url in urls {
         string|Error result = encodeUriComponent(url, "UTF-8");
         if (result is string) {
-            test:assertFalse(stringutils:contains(result, " "), msg = "Unexpected character.");
-            test:assertFalse(stringutils:contains(result, "*"), msg = "Unexpected character.");
-            test:assertFalse(stringutils:contains(result, "+"), msg = "Unexpected character.");
-            test:assertFalse(stringutils:contains(result, "%7E"), msg = "Unexpected character.");
+            test:assertTrue(result.indexOf(" ") is (), msg = "Unexpected character.");
+            test:assertTrue(result.indexOf("*") is (), msg = "Unexpected character.");
+            test:assertTrue(result.indexOf("+") is (), msg = "Unexpected character.");
+            test:assertTrue(result.indexOf("%7E") is (), msg = "Unexpected character.");
         } else {
             test:assertFail(msg = "Error while encodeUriComponent. " + result.message());
         }
@@ -75,7 +74,7 @@ function testUrlDecodeWithSpaces() {
     if (result is string) {
         string expectedUrl = "http://localhost:9090/echoService/hello world/";
         test:assertEquals(result, expectedUrl, msg = "Decoded url string is not correct.");
-        test:assertTrue(stringutils:contains(result, " "), msg = "Decoded url string doesn't contain spaces.");
+        test:assertTrue(result.indexOf(" ") is int, msg = "Decoded url string doesn't contain spaces.");
     } else {
         test:assertFail(msg = "Error in decodeUriComponent. " + result.message());
     }
@@ -88,7 +87,7 @@ function testUrlDecodeWithHashSign() {
     if (result is string) {
         string expectedUrl = "http://localhost:9090/echoService#abc";
         test:assertEquals(result, expectedUrl, msg = "Decoded url string is not correct.");
-        test:assertTrue(stringutils:contains(result, "#"), msg = "Decoded url string doesn't contain # character.");
+        test:assertTrue(result.indexOf("#") is int, msg = "Decoded url string doesn't contain # character.");
     } else {
         test:assertFail(msg = "Error in decodeUriComponent. " + result.message());
     }
@@ -101,7 +100,7 @@ function testUrlDecodeWithColon() {
     if (result is string) {
         string expectedUrl = "http://localhost:9090/echoService:abc";
         test:assertEquals(result, expectedUrl, msg = "Decoded url string is not correct.");
-        test:assertTrue(stringutils:contains(result, ":"), msg = "Decoded url string doesn't contain : character.");
+        test:assertTrue(result.indexOf(":") is int, msg = "Decoded url string doesn't contain : character.");
     } else {
         test:assertFail(msg = "Error in decodeUriComponent. " + result.message());
     }
@@ -114,7 +113,7 @@ function testUrlDecodeWithPlusSign() {
     if (result is string) {
         string expectedUrl = "http://localhost:9090/echoService+abc";
         test:assertEquals(result, expectedUrl, msg = "Decoded url string is not correct.");
-        test:assertTrue(stringutils:contains(result, "+"), msg = "Decoded url string doesn't contain + character.");
+        test:assertTrue(result.indexOf("+") is int, msg = "Decoded url string doesn't contain + character.");
     } else {
         test:assertFail(msg = "Error in decodeUriComponent. " + result.message());
     }
@@ -127,7 +126,7 @@ function testUrlDecodeWithAsterisk() {
     if (result is string) {
         string expectedUrl = "http://localhost:9090/echoService*abc";
         test:assertEquals(result, expectedUrl, msg = "Decoded url string is not correct.");
-        test:assertTrue(stringutils:contains(result, "*"), msg = "Decoded url string doesn't contain * character.");
+        test:assertTrue(result.indexOf("*") is int, msg = "Decoded url string doesn't contain * character.");
     } else {
         test:assertFail(msg = "Error in decodeUriComponent. " + result.message());
     }
@@ -140,7 +139,7 @@ function testUrlDecodeWithPercentageMark() {
     if (result is string) {
         string expectedUrl = "http://localhost:9090/echoService%abc";
         test:assertEquals(result, expectedUrl, msg = "Decoded url string is not correct.");
-        test:assertTrue(stringutils:contains(result, "%"), msg = "Decoded url string doesn't contain % character.");
+        test:assertTrue(result.indexOf("%") is int, msg = "Decoded url string doesn't contain % character.");
     } else {
         test:assertFail(msg = "Error in decodeUriComponent. " + result.message());
     }
@@ -153,7 +152,7 @@ function testUrlDecodeWithTilde() {
     if (result is string) {
         string expectedUrl = "http://localhost:9090/echoService~abc";
         test:assertEquals(result, expectedUrl, msg = "Decoded url string is not correct.");
-        test:assertTrue(stringutils:contains(result, "~"), msg = "Decoded url string doesn't contain ~ character.");
+        test:assertTrue(result.indexOf("~") is int, msg = "Decoded url string doesn't contain ~ character.");
     } else {
         test:assertFail(msg = "Error in decodeUriComponent. " + result.message());
     }
