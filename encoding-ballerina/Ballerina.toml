@@ -2,10 +2,6 @@
 org-name = "ballerina"
 version = "@toml.version@"
 
-[dependencies]
-"ballerina/io" = "@stdlib.io.version@"
-"ballerina/stringutils" = "@stdlib.stringutils.version@"
-
 [platform]
 target = "java11"
 
