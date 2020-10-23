@@ -28,8 +28,7 @@ import static io.ballerina.runtime.util.BLangConstants.BALLERINA_BUILTIN_PKG_PRE
 public class Constants {
 
     public static final String PACKAGE_NAME = "encoding";
-    public static final Module ENCODING_PACKAGE_ID =
-            new Module(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME, "1.0.3");
+    public static final Module ENCODING_PACKAGE_ID = new Module(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME, "1.0.4");
     // Error type IDs
     public static final String ENCODING_ERROR = "EncodingError";
     public static final String DECODING_ERROR = "DecodingError";
