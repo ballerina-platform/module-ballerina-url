@@ -18,8 +18,8 @@
 
 package org.ballerinalang.stdlib.encoding;
 
-import io.ballerina.runtime.api.ErrorCreator;
-import io.ballerina.runtime.api.StringUtils;
+import io.ballerina.runtime.api.creators.ErrorCreator;
+import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BError;
 
 import static org.ballerinalang.stdlib.encoding.Constants.ENCODING_PACKAGE_ID;
