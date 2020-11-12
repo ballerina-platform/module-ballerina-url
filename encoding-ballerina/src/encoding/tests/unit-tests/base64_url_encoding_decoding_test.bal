@@ -17,7 +17,7 @@
 import ballerina/test;
 
 @test:Config {}
-public function testEncodeBase64Url() {
+isolated function testEncodeBase64Url() {
     string input = "Ballerina Base64 URL encoding test";
     string expectedValue = "QmFsbGVyaW5hIEJhc2U2NCBVUkwgZW5jb2RpbmcgdGVzdA";
     string result = encodeBase64Url(input.toBytes());
@@ -25,7 +25,7 @@ public function testEncodeBase64Url() {
 }
 
 @test:Config {}
-public function testDecodeBase64Url() {
+isolated function testDecodeBase64Url() {
     string input = "QmFsbGVyaW5hIEJhc2U2NCBVUkwgZW5jb2RpbmcgdGVzdA";
     string encodedString = "Ballerina Base64 URL encoding test";
     byte[]|Error result = decodeBase64Url(input);
