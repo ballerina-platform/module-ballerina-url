@@ -1,13 +1,10 @@
-[project]
-org-name = "ballerina"
+[package]
+org = "ballerina"
+name = "encoding"
 version = "@toml.version@"
 
-[platform]
-target = "java11"
-
-    [[platform.libraries]]
-    artifactId = "encoding"
-    version = "@project.version@"
-    path = "../encoding-native/build/libs/encoding-native-@project.version@.jar"
-    groupId = "ballerina"
-    modules = ["encoding"]
+[[platform.java11.dependency]]
+path = "../encoding-native/build/libs/encoding-native-@project.version@.jar"
+groupId = "ballerina"
+artifactId = "encoding"
+version = "@project.version@"
