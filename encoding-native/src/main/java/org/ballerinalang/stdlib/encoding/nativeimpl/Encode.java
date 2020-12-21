@@ -21,7 +21,7 @@ package org.ballerinalang.stdlib.encoding.nativeimpl;
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BArray;
 import io.ballerina.runtime.api.values.BString;
-import org.ballerinalang.stdlib.encoding.EncodingUtil;
+import org.ballerinalang.stdlib.encoding.EncodingUtils;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -63,8 +63,8 @@ public class Encode {
             }
             return StringUtils.fromString(buf.toString());
         } catch (Throwable e) {
-            return EncodingUtil
-                    .createError("Error occurred while encoding the URI component. " + e.getMessage(), ENCODING_ERROR);
+            return EncodingUtils.createError(ENCODING_ERROR,
+                                             "Error occurred while encoding the URI component. " + e.getMessage());
         }
     }
 }
