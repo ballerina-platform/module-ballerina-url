@@ -18,17 +18,11 @@
 
 package org.ballerinalang.stdlib.encoding;
 
-import io.ballerina.runtime.api.Module;
-
-import static io.ballerina.runtime.api.constants.RuntimeConstants.BALLERINA_BUILTIN_PKG_PREFIX;
-
 /**
  * Constants related to encoding module.
  */
 public class Constants {
 
-    public static final String PACKAGE_NAME = "encoding";
-    public static final Module ENCODING_PACKAGE_ID = new Module(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME, "1.0.6");
     // Error type IDs
     public static final String ENCODING_ERROR = "EncodingError";
     public static final String DECODING_ERROR = "DecodingError";

@@ -21,7 +21,7 @@ package org.ballerinalang.stdlib.encoding.nativeimpl;
 import io.ballerina.runtime.api.creators.ValueCreator;
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BString;
-import org.ballerinalang.stdlib.encoding.EncodingUtil;
+import org.ballerinalang.stdlib.encoding.EncodingUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -41,7 +41,7 @@ public class Decode {
             byte[] output = Base64.getUrlDecoder().decode(input.getValue());
             return ValueCreator.createArrayValue(output);
         } catch (IllegalArgumentException e) {
-            return EncodingUtil.createError("Input is not a valid Base64 URL encoded value", DECODING_ERROR);
+            return EncodingUtils.createError(DECODING_ERROR, "Input is not a valid Base64 URL encoded value");
         }
     }
 
@@ -49,8 +49,8 @@ public class Decode {
         try {
             return StringUtils.fromString(URLDecoder.decode(url.getValue(), charset.getValue()));
         } catch (UnsupportedEncodingException e) {
-            return EncodingUtil
-                    .createError("Error occurred while decoding the URI component. " + e.getMessage(), DECODING_ERROR);
+            return EncodingUtils.createError(DECODING_ERROR,
+                                             "Error occurred while decoding the URI component. " + e.getMessage());
         }
     }
 }

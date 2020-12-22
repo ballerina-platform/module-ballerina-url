@@ -21,24 +21,16 @@ package org.ballerinalang.stdlib.encoding;
 import io.ballerina.runtime.api.creators.ErrorCreator;
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BError;
-
-import static org.ballerinalang.stdlib.encoding.Constants.ENCODING_PACKAGE_ID;
+import org.ballerinalang.stdlib.encoding.nativeimpl.ModuleUtils;
 
 /**
  * Utility functions relevant to encoding operations.
  *
  * @since 0.990.3
  */
-public class EncodingUtil {
+public class EncodingUtils {
 
-    /**
-     * Create encoding error.
-     *
-     * @param typeId Error type ID
-     * @param errMsg Error description
-     * @return conversion error
-     */
-    public static BError createError(String errMsg, String typeId) {
-        return ErrorCreator.createDistinctError(typeId, ENCODING_PACKAGE_ID, StringUtils.fromString(errMsg));
+    public static BError createError(String errTypeId, String errMsg) {
+        return ErrorCreator.createDistinctError(errTypeId, ModuleUtils.getModule(), StringUtils.fromString(errMsg));
     }
 }
