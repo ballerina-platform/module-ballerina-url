@@ -30,7 +30,9 @@ public class ModuleUtils {
 
     private static Module encodingModule;
 
-    public static void initModule(Environment env) {
+    private ModuleUtils() {}
+
+    public static void setModule(Environment env) {
         encodingModule = env.getCurrentModule();
     }
 
