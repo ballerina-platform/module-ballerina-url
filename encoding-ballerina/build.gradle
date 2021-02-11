@@ -25,7 +25,7 @@ description = 'Ballerina - Encoding Ballerina'
 
 def packageName = "encoding"
 def packageOrg = "ballerina"
-def tomlVersion = project.version.split("-")[0]
+def tomlVersion = project.version.replace("-SNAPSHOT", "")
 def ballerinaConfigFile = new File("$project.projectDir/Ballerina.toml")
 def artifactBallerinaDocs = file("$project.projectDir/build/docs_parent/")
 def artifactCacheParent = file("$project.projectDir/build/cache_parent/")
