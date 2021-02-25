@@ -27,6 +27,8 @@ jobs:
           name: Ballerina Internal Log
           path: url-ballerina/ballerina-internal.log
           if-no-files-found: ignore
+      - name: Generate CodeCov Report
+        uses: codecov/codecov-action@v1
 
   windows-build:
     runs-on: windows-latest
