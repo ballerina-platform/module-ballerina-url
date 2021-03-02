@@ -20,22 +20,20 @@ package org.ballerinalang.stdlib.url.nativeimpl;
 
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BString;
-import org.ballerinalang.stdlib.url.EncodingUtils;
+import org.ballerinalang.stdlib.url.UrlUtils;
 
 import java.net.URLEncoder;
 
-import static org.ballerinalang.stdlib.url.Constants.ENCODING_ERROR;
-
 /**
- * Extern functions of ballerina encoding.
+ * Extern functions of URL encoding.
  *
  * @since 0.991.0
  */
 public class Encode {
 
-    public static Object encodeUriComponent(BString url, BString charset) {
+    public static Object encode(BString str, BString charset) {
         try {
-            String encoded = URLEncoder.encode(url.getValue(), charset.getValue());
+            String encoded = URLEncoder.encode(str.getValue(), charset.getValue());
             StringBuilder buf = new StringBuilder(encoded.length());
             char focus;
             for (int i = 0; i < encoded.length(); i++) {
@@ -55,8 +53,7 @@ public class Encode {
             }
             return StringUtils.fromString(buf.toString());
         } catch (Throwable e) {
-            return EncodingUtils.createError(ENCODING_ERROR,
-                                             "Error occurred while encoding the URI component. " + e.getMessage());
+            return UrlUtils.createError("Error occurred while encoding. " + e.getMessage());
         }
     }
 }

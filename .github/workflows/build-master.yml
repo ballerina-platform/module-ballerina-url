@@ -30,7 +30,7 @@ jobs:
         if: failure()
         with:
           name: Ballerina Internal Log
-          path: encoding-ballerina/ballerina-internal.log
+          path: url-ballerina/ballerina-internal.log
           if-no-files-found: ignore
       - name: Dispatch Dependent Module Builds
         if: github.event.action != 'stdlib-publish-snapshot'

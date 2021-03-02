@@ -14,11 +14,8 @@
 // specific language governing permissions and limitations
 // under the License.
 
-# Represents the Encoding error.
-public type EncodingError distinct error;
+# Represents the URL error.
+public type UrlError distinct error;
 
-# Represents the Decoding error.
-public type DecodingError distinct error;
-
-# Represents the Encoding module error.
-public type Error EncodingError|DecodingError;
+# Represents the URL module related error.
+public type Error UrlError;

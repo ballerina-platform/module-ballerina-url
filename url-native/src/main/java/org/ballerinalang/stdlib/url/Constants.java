@@ -19,11 +19,9 @@
 package org.ballerinalang.stdlib.url;
 
 /**
- * Constants related to encoding module.
+ * Constants related to URL module.
  */
 public class Constants {
 
-    // Error type IDs
-    public static final String ENCODING_ERROR = "EncodingError";
-    public static final String DECODING_ERROR = "DecodingError";
+    static final String URL_ERROR = "UrlError";
 }

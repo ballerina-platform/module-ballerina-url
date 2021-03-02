@@ -28,15 +28,15 @@ import io.ballerina.runtime.api.Module;
  */
 public class ModuleUtils {
 
-    private static Module encodingModule;
+    private static Module urlModule;
 
     private ModuleUtils() {}
 
     public static void setModule(Environment env) {
-        encodingModule = env.getCurrentModule();
+        urlModule = env.getCurrentModule();
     }
 
     public static Module getModule() {
-        return encodingModule;
+        return urlModule;
     }
 }

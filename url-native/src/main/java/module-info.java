@@ -15,7 +15,7 @@
  *
  */
 
-module io.ballerina.stdlib.encoding {
+module io.ballerina.stdlib.url {
     requires io.ballerina.runtime;
     exports org.ballerinalang.stdlib.url.nativeimpl;
 }

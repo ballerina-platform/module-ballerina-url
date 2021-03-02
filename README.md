@@ -1,16 +1,16 @@
-Ballerina Encoding Library
+Ballerina URL Library
 ===================
 
-  [![Build](https://github.com/ballerina-platform/module-ballerina-encoding/workflows/Build/badge.svg)](https://github.com/ballerina-platform/module-ballerina-encoding/actions?query=workflow%3ABuild)
-  [![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerina-encoding.svg?label=Last%20Commit)](https://github.com/ballerina-platform/module-ballerina-encoding/commits/master)
-  [![Github issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-standard-library/module/encoding.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-standard-library/labels/module%2Fencoding)
+  [![Build](https://github.com/ballerina-platform/module-ballerina-url/workflows/Build/badge.svg)](https://github.com/ballerina-platform/module-ballerina-url/actions?query=workflow%3ABuild)
+  [![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerina-url.svg?label=Last%20Commit)](https://github.com/ballerina-platform/module-ballerina-url/commits/master)
+  [![Github issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-standard-library/module/url.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-standard-library/labels/module%2Furl)
   [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The Encoding library is one of the standard library modules of the<a target="_blank" href="https://ballerina.io/"> Ballerina</a> language.
+The URL library is one of the standard library modules of the<a target="_blank" href="https://ballerina.io/"> Ballerina</a> language.
 
-It provides the necessary utilities, which are required to encode and decode content using different URL encoding mechanisms and algorithms.
+It provides the necessary utilities, which are required to encode and decode a URL or part of a URL.
 
-For more information go to [The Encoding Module](https://ballerina.io/learn/api-docs/ballerina/encoding/index.html).
+For more information go to [The URL Module](https://ballerina.io/learn/api-docs/ballerina/url/index.html).
 
 For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
 

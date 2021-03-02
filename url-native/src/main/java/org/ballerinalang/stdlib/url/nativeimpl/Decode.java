@@ -20,26 +20,23 @@ package org.ballerinalang.stdlib.url.nativeimpl;
 
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BString;
-import org.ballerinalang.stdlib.url.EncodingUtils;
+import org.ballerinalang.stdlib.url.UrlUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-import static org.ballerinalang.stdlib.url.Constants.DECODING_ERROR;
-
 /**
- * Extern functions of ballerina decoding.
- *of
+ * Extern functions of URL decoding.
+ *
  * @since 0.991.0
  */
 public class Decode {
 
-    public static Object decodeUriComponent(BString url, BString charset) {
+    public static Object decode(BString str, BString charset) {
         try {
-            return StringUtils.fromString(URLDecoder.decode(url.getValue(), charset.getValue()));
+            return StringUtils.fromString(URLDecoder.decode(str.getValue(), charset.getValue()));
         } catch (UnsupportedEncodingException e) {
-            return EncodingUtils.createError(DECODING_ERROR,
-                                             "Error occurred while decoding the URI component. " + e.getMessage());
+            return UrlUtils.createError("Error occurred while decoding. " + e.getMessage());
         }
     }
 }
