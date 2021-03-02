@@ -16,7 +16,7 @@
  *  under the License.
  */
 
-package org.ballerinalang.stdlib.encoding;
+package org.ballerinalang.stdlib.url;
 
 /**
  * Constants related to encoding module.

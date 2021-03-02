@@ -16,15 +16,15 @@
  * under the License.
  */
 
-package org.ballerinalang.stdlib.encoding.nativeimpl;
+package org.ballerinalang.stdlib.url.nativeimpl;
 
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BString;
-import org.ballerinalang.stdlib.encoding.EncodingUtils;
+import org.ballerinalang.stdlib.url.EncodingUtils;
 
 import java.net.URLEncoder;
 
-import static org.ballerinalang.stdlib.encoding.Constants.ENCODING_ERROR;
+import static org.ballerinalang.stdlib.url.Constants.ENCODING_ERROR;
 
 /**
  * Extern functions of ballerina encoding.

@@ -27,7 +27,7 @@ import ballerina/jballerina.java;
 # + return - The `string` value of the encoded URI component or an `Error` that occurred during encoding
 public isolated function encodeUriComponent(string uriComponent, string charset) returns string|Error = @java:Method {
     name: "encodeUriComponent",
-    'class: "org.ballerinalang.stdlib.encoding.nativeimpl.Encode"
+    'class: "org.ballerinalang.stdlib.url.nativeimpl.Encode"
 } external;
 
 # Decodes the given URI component into a `string` using the provided charset.
@@ -41,5 +41,5 @@ public isolated function encodeUriComponent(string uriComponent, string charset)
 # + return - The `string` value of the decoded URI component or an `Error` that occurred during decoding
 public isolated function decodeUriComponent(string uriComponent, string charset) returns string|Error = @java:Method {
     name: "decodeUriComponent",
-    'class: "org.ballerinalang.stdlib.encoding.nativeimpl.Decode"
+    'class: "org.ballerinalang.stdlib.url.nativeimpl.Decode"
 } external;

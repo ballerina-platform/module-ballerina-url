@@ -16,12 +16,12 @@
  * under the License.
  */
 
-package org.ballerinalang.stdlib.encoding;
+package org.ballerinalang.stdlib.url;
 
 import io.ballerina.runtime.api.creators.ErrorCreator;
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BError;
-import org.ballerinalang.stdlib.encoding.nativeimpl.ModuleUtils;
+import org.ballerinalang.stdlib.url.nativeimpl.ModuleUtils;
 
 /**
  * Utility functions relevant to encoding operations.

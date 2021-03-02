@@ -1,10 +1,10 @@
 [package]
 org = "ballerina"
-name = "encoding"
+name = "url"
 version = "@toml.version@"
 
 [[platform.java11.dependency]]
-path = "../encoding-native/build/libs/encoding-native-@project.version@.jar"
+path = "../url-native/build/libs/url-native-@project.version@.jar"
 groupId = "ballerina"
-artifactId = "encoding"
+artifactId = "url"
 version = "@project.version@"
