@@ -18,14 +18,12 @@
 
 package org.ballerinalang.stdlib.encoding.nativeimpl;
 
-import io.ballerina.runtime.api.creators.ValueCreator;
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BString;
 import org.ballerinalang.stdlib.encoding.EncodingUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.Base64;
 
 import static org.ballerinalang.stdlib.encoding.Constants.DECODING_ERROR;
 
@@ -35,15 +33,6 @@ import static org.ballerinalang.stdlib.encoding.Constants.DECODING_ERROR;
  * @since 0.991.0
  */
 public class Decode {
-
-    public static Object decodeBase64Url(BString input) {
-        try {
-            byte[] output = Base64.getUrlDecoder().decode(input.getValue());
-            return ValueCreator.createArrayValue(output);
-        } catch (IllegalArgumentException e) {
-            return EncodingUtils.createError(DECODING_ERROR, "Input is not a valid Base64 URL encoded value");
-        }
-    }
 
     public static Object decodeUriComponent(BString url, BString charset) {
         try {

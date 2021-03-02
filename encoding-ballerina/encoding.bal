@@ -16,31 +16,6 @@
 
 import ballerina/jballerina.java;
 
-# Returns the Base64 URL encoded `string` value of the given byte array.
-# ```ballerina
-# string query = "Hellö Wörld@Ballerina";
-# string urlEncodedValue = encoding:encodeBase64Url(query.toBytes());
-# ```
-#
-# + input - Byte array to be encoded
-# + return - Encoded output
-public isolated function encodeBase64Url(byte[] input) returns string = @java:Method {
-    name: "encodeBase64Url",
-    'class: "org.ballerinalang.stdlib.encoding.nativeimpl.Encode"
-} external;
-
-# Decodes the Base64 URL encoded `string` into a byte array.
-# ```ballerina
-# byte[]|encoding:Error urlDecodedValue = encoding:decodeBase64Url("SGVsbMO2IFfDtnJsZEBCYWxsZXJpbmE");
-# ```
-#
-# + input - Value to be decoded
-# + return - Decoded output or else a `mime:Error` if the input is not a valid Base64 URL encoded value
-public isolated function decodeBase64Url(string input) returns byte[]|Error = @java:Method {
-    name: "decodeBase64Url",
-    'class: "org.ballerinalang.stdlib.encoding.nativeimpl.Decode"
-} external;
-
 # Encodes the given URI component into a `string` using the provided charset.
 # ```ballerina
 # string urlValue = "param1=http://xyz.com/?a=12&b=55¶m2=99";
