@@ -21,7 +21,7 @@ plugins {
     id 'com.github.spotbugs'
 }
 
-description = 'Ballerina - Encoding Java Native Implementation'
+description = 'Ballerina - URL Java Native Implementation'
 
 dependencies {
     checkstyle project(':build-config:checkstyle')

@@ -16,34 +16,24 @@
  * under the License.
  */
 
-package org.ballerinalang.stdlib.encoding.nativeimpl;
+package org.ballerinalang.stdlib.url.nativeimpl;
 
 import io.ballerina.runtime.api.utils.StringUtils;
-import io.ballerina.runtime.api.values.BArray;
 import io.ballerina.runtime.api.values.BString;
-import org.ballerinalang.stdlib.encoding.EncodingUtils;
+import org.ballerinalang.stdlib.url.UrlUtils;
 
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-
-import static org.ballerinalang.stdlib.encoding.Constants.ENCODING_ERROR;
 
 /**
- * Extern functions of ballerina encoding.
- *of
+ * Extern functions of URL encoding.
+ *
  * @since 0.991.0
  */
 public class Encode {
 
-    public static BString encodeBase64Url(BArray input) {
-        byte[] encodedValue = Base64.getUrlEncoder().withoutPadding().encode(input.getBytes());
-        return StringUtils.fromString(new String(encodedValue, StandardCharsets.ISO_8859_1));
-    }
-
-    public static Object encodeUriComponent(BString url, BString charset) {
+    public static Object encode(BString str, BString charset) {
         try {
-            String encoded = URLEncoder.encode(url.getValue(), charset.getValue());
+            String encoded = URLEncoder.encode(str.getValue(), charset.getValue());
             StringBuilder buf = new StringBuilder(encoded.length());
             char focus;
             for (int i = 0; i < encoded.length(); i++) {
@@ -63,8 +53,7 @@ public class Encode {
             }
             return StringUtils.fromString(buf.toString());
         } catch (Throwable e) {
-            return EncodingUtils.createError(ENCODING_ERROR,
-                                             "Error occurred while encoding the URI component. " + e.getMessage());
+            return UrlUtils.createError("Error occurred while encoding. " + e.getMessage());
         }
     }
 }

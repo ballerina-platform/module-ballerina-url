@@ -21,9 +21,9 @@ plugins {
 
 import org.apache.tools.ant.taskdefs.condition.Os
 
-description = 'Ballerina - Encoding Ballerina'
+description = 'Ballerina - URL Ballerina'
 
-def packageName = "encoding"
+def packageName = "url"
 def packageOrg = "ballerina"
 def tomlVersion = project.version.replace("-SNAPSHOT", "")
 def ballerinaConfigFile = new File("$project.projectDir/Ballerina.toml")

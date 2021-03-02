@@ -74,5 +74,5 @@ release {
 }
 
 task build {
-    dependsOn('encoding-ballerina:build')
+    dependsOn('url-ballerina:build')
 }

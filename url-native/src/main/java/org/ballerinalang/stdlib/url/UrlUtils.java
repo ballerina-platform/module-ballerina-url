@@ -16,21 +16,23 @@
  * under the License.
  */
 
-package org.ballerinalang.stdlib.encoding;
+package org.ballerinalang.stdlib.url;
 
 import io.ballerina.runtime.api.creators.ErrorCreator;
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BError;
-import org.ballerinalang.stdlib.encoding.nativeimpl.ModuleUtils;
+import org.ballerinalang.stdlib.url.nativeimpl.ModuleUtils;
+
+import static org.ballerinalang.stdlib.url.Constants.URL_ERROR;
 
 /**
- * Utility functions relevant to encoding operations.
+ * Utility functions relevant to URL operations.
  *
  * @since 0.990.3
  */
-public class EncodingUtils {
+public class UrlUtils {
 
-    public static BError createError(String errTypeId, String errMsg) {
-        return ErrorCreator.createDistinctError(errTypeId, ModuleUtils.getModule(), StringUtils.fromString(errMsg));
+    public static BError createError(String errMsg) {
+        return ErrorCreator.createDistinctError(URL_ERROR, ModuleUtils.getModule(), StringUtils.fromString(errMsg));
     }
 }
