@@ -7,7 +7,6 @@ Ballerina URL Library
   [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
   [![codecov](https://codecov.io/gh/ballerina-platform/module-ballerina-url/branch/master/graph/badge.svg)](https://codecov.io/gh/ballerina-platform/module-ballerina-url)
 
-
 The URL library is one of the standard library modules of the<a target="_blank" href="https://ballerina.io/"> Ballerina</a> language.
 
 It provides the necessary utilities, which are required to encode and decode a URL or part of a URL.
