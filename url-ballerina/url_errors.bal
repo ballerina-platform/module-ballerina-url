@@ -15,7 +15,4 @@
 // under the License.
 
 # Represents the URL error.
-public type UrlError distinct error;
-
-# Represents the URL module related error.
-public type Error UrlError;
+public type Error distinct error;

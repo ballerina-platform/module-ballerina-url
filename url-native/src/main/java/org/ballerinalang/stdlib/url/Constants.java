@@ -23,5 +23,5 @@ package org.ballerinalang.stdlib.url;
  */
 public class Constants {
 
-    static final String URL_ERROR = "UrlError";
+    static final String URL_ERROR = "Error";
 }
