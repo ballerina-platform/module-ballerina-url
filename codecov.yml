@@ -1,5 +1,0 @@
-fixes:
-  - "ballerina/url/*/::url-ballerina/"
-
-ignore:
-  - "**/tests"
