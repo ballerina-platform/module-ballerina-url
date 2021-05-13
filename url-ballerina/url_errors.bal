@@ -14,5 +14,5 @@
 // specific language governing permissions and limitations
 // under the License.
 
-# Represents the URL error.
+# Represents the error type of the module.
 public type Error distinct error;
