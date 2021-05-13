@@ -6,8 +6,6 @@ URL encoding stands for encoding certain characters in a URL by replacing them w
 
 The Ballerina URL module facilitates APIs to encode and decode a URL or part of a URL.
 
-For more information go to [The URL Module](https://docs.central.ballerina.io/ballerina/url/latest).
-
 ### Report Issues
 
 To report bugs, request new features, start new discussions, view project boards, etc. please visit Ballerina
