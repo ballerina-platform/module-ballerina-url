@@ -8,8 +8,6 @@ The Ballerina URL module facilitates APIs to encode and decode a URL or part of 
 
 For more information go to [The URL Module](https://docs.central.ballerina.io/ballerina/url/latest).
 
-For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
-
 ### Report Issues
 
 To report bugs, request new features, start new discussions, view project boards, etc. please visit Ballerina
