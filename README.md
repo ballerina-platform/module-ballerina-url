@@ -19,7 +19,7 @@ For example demonstrations of the usage, go to [Ballerina By Examples](https://b
 
 ## Issues and Projects
 
-Issues and Projects tabs are disabled for this repository as this is part of the Ballerina Standard Library. To report bugs, request new features, start new discussions, view project boards, etc. please visit Ballerina Standard Library [parent repository](https://github.com/ballerina-platform/ballerina-standard-library).
+Issues and Projects tabs are disabled for this repository as this is part of the Ballerina Standard Library. To report bugs, request new features, start new discussions, view project boards, etc. please visit the Ballerina Standard Library [parent repository](https://github.com/ballerina-platform/ballerina-standard-library).
 
 This repository only contains the source code for the module.
 
@@ -34,7 +34,14 @@ This repository only contains the source code for the module.
    * [OpenJDK](https://adoptopenjdk.net)
    
         > **Note:** Set the JAVA_HOME environment variable to the path name of the directory into which you installed JDK.
-     
+
+2. Export GitHub Personal Access Token (PAT) with 'read package' permission as follows:
+
+    ```
+    export packageUser=<Username>
+    export packagePAT=<Personal Access Token>
+    ```
+
 ### Building the Source
 
 Execute the commands below to build from the source.
