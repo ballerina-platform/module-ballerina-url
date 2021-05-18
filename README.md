@@ -7,7 +7,7 @@ Ballerina URL Library
   [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
   [![codecov](https://codecov.io/gh/ballerina-platform/module-ballerina-url/branch/master/graph/badge.svg)](https://codecov.io/gh/ballerina-platform/module-ballerina-url)
 
-The URL library is one of the standard library modules of the [Ballerina](https://ballerina.io/) language.
+The `url` library is one of the standard library modules of the [Ballerina](https://ballerina.io/) language.
 
 URL encoding stands for encoding certain characters in a URL by replacing them with one or more character triplets that consist of the percent character "%" followed by two hexadecimal digits. The two hexadecimal digits of the triplet(s) represent the numeric value of the replaced character.
 
