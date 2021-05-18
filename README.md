@@ -11,9 +11,9 @@ The `url` library is one of the standard library modules of the [Ballerina](http
 
 URL encoding stands for encoding certain characters in a URL by replacing them with one or more character triplets that consist of the percent character "%" followed by two hexadecimal digits. The two hexadecimal digits of the triplet(s) represent the numeric value of the replaced character.
 
-The Ballerina URL module facilitates APIs to encode and decode a URL or part of a URL.
+The Ballerina `url` module facilitates APIs to encode and decode a URL or part of a URL.
 
-For more information, go to the [URL module](https://docs.central.ballerina.io/ballerina/url/latest).
+For more information, go to the [`url` module](https://docs.central.ballerina.io/ballerina/url/latest).
 
 For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
 
@@ -33,7 +33,7 @@ This repository only contains the source code for the module.
    
    * [OpenJDK](https://adoptopenjdk.net)
    
-        > **Note:** Set the JAVA_HOME environment variable to the path name of the directory into which you installed JDK.
+        > **Note:** Set the `JAVA_HOME` environment variable to the path name of the directory into which you installed JDK.
 
 2. Export your GitHub Personal Access Token (PAT) with the 'read package' permission as follows:
 
