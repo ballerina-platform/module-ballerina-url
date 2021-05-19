@@ -30,7 +30,7 @@ isolated function testEncode() {
         "http://localhost:9090/echoService~abc"
     ];
 
-    foreach var url in urls {
+    foreach string url in urls {
         string|Error result = encode(url, "UTF-8");
         if (result is string) {
             test:assertFalse(result.includes(" "), msg = "Unexpected character.");

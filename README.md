@@ -3,21 +3,23 @@ Ballerina URL Library
 
   [![Build](https://github.com/ballerina-platform/module-ballerina-url/actions/workflows/build-timestamped-master.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerina-url/actions/workflows/build-timestamped-master.yml)
   [![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerina-url.svg?label=Last%20Commit)](https://github.com/ballerina-platform/module-ballerina-url/commits/master)
-  [![Github issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-standard-library/module/url.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-standard-library/labels/module%2Furl)
+  [![GitHub issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-standard-library/module/url.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-standard-library/labels/module%2Furl)
   [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
   [![codecov](https://codecov.io/gh/ballerina-platform/module-ballerina-url/branch/master/graph/badge.svg)](https://codecov.io/gh/ballerina-platform/module-ballerina-url)
 
-The URL library is one of the standard library modules of the<a target="_blank" href="https://ballerina.io/"> Ballerina</a> language.
+The `url` library is one of the standard library modules of the [Ballerina](https://ballerina.io/) language.
 
-It provides the necessary utilities, which are required to encode and decode a URL or part of a URL.
+URL encoding stands for encoding certain characters in a URL by replacing them with one or more character triplets that consist of the percent character "%" followed by two hexadecimal digits. The two hexadecimal digits of the triplet(s) represent the numeric value of the replaced character.
 
-For more information go to [The URL Module](https://ballerina.io/learn/api-docs/ballerina/url/index.html).
+The Ballerina `url` module facilitates APIs to encode and decode a URL or part of a URL.
+
+For more information, go to the [`url` module](https://docs.central.ballerina.io/ballerina/url/latest).
 
 For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
 
 ## Issues and Projects
 
-Issues and Projects tabs are disabled for this repository as this is part of the Ballerina Standard Library. To report bugs, request new features, start new discussions, view project boards, etc. please visit Ballerina Standard Library [parent repository](https://github.com/ballerina-platform/ballerina-standard-library).
+Issues and Projects tabs are disabled for this repository as this is part of the Ballerina Standard Library. To report bugs, request new features, start new discussions, view project boards, etc., go to the [Ballerina Standard Library parent repository](https://github.com/ballerina-platform/ballerina-standard-library).
 
 This repository only contains the source code for the module.
 
@@ -31,8 +33,15 @@ This repository only contains the source code for the module.
    
    * [OpenJDK](https://adoptopenjdk.net)
    
-        > **Note:** Set the JAVA_HOME environment variable to the path name of the directory into which you installed JDK.
-     
+        > **Note:** Set the `JAVA_HOME` environment variable to the path name of the directory into which you installed JDK.
+
+2. Export your GitHub Personal Access Token (PAT) with the 'read package' permission as follows:
+
+    ```
+    export packageUser=<Username>
+    export packagePAT=<Personal Access Token>
+    ```
+
 ### Building the Source
 
 Execute the commands below to build from the source.
@@ -88,6 +97,6 @@ All contributors are encouraged to read the [Ballerina Code of Conduct](https://
 
 ## Useful Links
 
-* Discuss about code changes of the Ballerina project in [ballerina-dev@googlegroups.com](mailto:ballerina-dev@googlegroups.com).
+* Discuss code changes of the Ballerina project in [ballerina-dev@googlegroups.com](mailto:ballerina-dev@googlegroups.com).
 * Chat live with us via our [Slack channel](https://ballerina.io/community/slack/).
 * Post all technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
