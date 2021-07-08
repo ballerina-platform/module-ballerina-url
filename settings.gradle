@@ -12,9 +12,14 @@ plugins {
 }
 
 rootProject.name = 'url'
-include(':build-config:checkstyle')
-include ':url-native', ':url-ballerina'
 
+include ':checkstyle'
+include ':url-native'
+include ':url-ballerina'
+
+project(':checkstyle').projectDir = file("build-config${File.separator}checkstyle")
+project(':url-native').projectDir = file('native')
+project(':url-ballerina').projectDir = file('ballerina')
 
 gradleEnterprise {
     buildScan {

@@ -16,11 +16,11 @@
  * under the License.
  */
 
-package org.ballerinalang.stdlib.url.nativeimpl;
+package io.ballerina.stdlib.url.nativeimpl;
 
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BString;
-import org.ballerinalang.stdlib.url.UrlUtils;
+import io.ballerina.stdlib.url.UrlUtils;
 
 import java.net.URLEncoder;
 

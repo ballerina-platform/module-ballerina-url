@@ -16,7 +16,7 @@
  *  under the License.
  */
 
-package org.ballerinalang.stdlib.url;
+package io.ballerina.stdlib.url;
 
 /**
  * Constants related to URL module.
