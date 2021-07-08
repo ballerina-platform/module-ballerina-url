@@ -26,7 +26,7 @@ import ballerina/jballerina.java;
 # + charset - The name of a supported character encoding
 # + return - The `string` value of the encoded string or an `url:Error` if an error occurred
 public isolated function encode(string value, string charset) returns string|Error = @java:Method {
-    'class: "org.ballerinalang.stdlib.url.nativeimpl.Encode"
+    'class: "io.ballerina.stdlib.url.nativeimpl.Encode"
 } external;
 
 # Decodes the given string value into a `string` using the provided charset.
@@ -39,5 +39,5 @@ public isolated function encode(string value, string charset) returns string|Err
 # + charset - The name of a supported character encoding
 # + return - The `string` value of the decoded string or an `url:Error` if an error occurred
 public isolated function decode(string value, string charset) returns string|Error = @java:Method {
-    'class: "org.ballerinalang.stdlib.url.nativeimpl.Decode"
+    'class: "io.ballerina.stdlib.url.nativeimpl.Decode"
 } external;

@@ -17,5 +17,5 @@
 
 module io.ballerina.stdlib.url {
     requires io.ballerina.runtime;
-    exports org.ballerinalang.stdlib.url.nativeimpl;
+    exports io.ballerina.stdlib.url.nativeimpl;
 }

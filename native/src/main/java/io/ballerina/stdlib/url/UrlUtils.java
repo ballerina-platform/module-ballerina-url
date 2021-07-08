@@ -16,14 +16,14 @@
  * under the License.
  */
 
-package org.ballerinalang.stdlib.url;
+package io.ballerina.stdlib.url;
 
 import io.ballerina.runtime.api.creators.ErrorCreator;
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BError;
-import org.ballerinalang.stdlib.url.nativeimpl.ModuleUtils;
+import io.ballerina.stdlib.url.nativeimpl.ModuleUtils;
 
-import static org.ballerinalang.stdlib.url.Constants.URL_ERROR;
+import static io.ballerina.stdlib.url.Constants.URL_ERROR;
 
 /**
  * Utility functions relevant to URL operations.
