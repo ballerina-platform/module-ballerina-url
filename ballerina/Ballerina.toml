@@ -5,6 +5,3 @@ version = "@toml.version@"
 
 [[platform.java11.dependency]]
 path = "../native/build/libs/url-native-@project.version@.jar"
-groupId = "ballerina"
-artifactId = "url"
-version = "@project.version@"
