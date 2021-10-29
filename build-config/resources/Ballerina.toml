@@ -2,6 +2,10 @@
 org = "ballerina"
 name = "url"
 version = "@toml.version@"
+authors = ["Ballerina"]
+keywords = ["url encoding", "url decoding"]
+repository = "https://github.com/ballerina-platform/module-ballerina-url"
+license = ["Apache-2.0"]
 distribution = "slbeta3"
 
 [[platform.java11.dependency]]
