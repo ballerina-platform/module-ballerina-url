@@ -7,11 +7,11 @@ Ballerina URL Library
   [![GitHub issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-standard-library/module/url.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-standard-library/labels/module%2Furl)
   [![codecov](https://codecov.io/gh/ballerina-platform/module-ballerina-url/branch/master/graph/badge.svg)](https://codecov.io/gh/ballerina-platform/module-ballerina-url)
 
-This module provides the URL encoding/decoding functions.
+This library provides the URL encoding/decoding functions.
 
 URL encoding stands for encoding certain characters in a URL by replacing them with one or more character triplets that consist of the percent character `%` followed by two hexadecimal digits. The two hexadecimal digits of the triplet(s) represent the numeric value of the replaced character.
 
-The Ballerina `url` module facilitates APIs to encode and decode a URL or part of a URL.
+The Ballerina `url` library facilitates APIs to encode and decode a URL or part of a URL.
 
 ## Issues and Projects
 
