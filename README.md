@@ -7,15 +7,11 @@ Ballerina URL Library
   [![GitHub issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-standard-library/module/url.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-standard-library/labels/module%2Furl)
   [![codecov](https://codecov.io/gh/ballerina-platform/module-ballerina-url/branch/master/graph/badge.svg)](https://codecov.io/gh/ballerina-platform/module-ballerina-url)
 
-The `url` library is one of the standard library modules of the [Ballerina](https://ballerina.io/) language.
+This library provides the URL encoding/decoding functions.
 
 URL encoding stands for encoding certain characters in a URL by replacing them with one or more character triplets that consist of the percent character `%` followed by two hexadecimal digits. The two hexadecimal digits of the triplet(s) represent the numeric value of the replaced character.
 
-The Ballerina `url` module facilitates APIs to encode and decode a URL or part of a URL.
-
-For more information, go to the [`url` module](https://docs.central.ballerina.io/ballerina/url/latest).
-
-For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
+The Ballerina `url` library facilitates APIs to encode and decode a URL or part of a URL.
 
 ## Issues and Projects
 
@@ -97,5 +93,7 @@ All contributors are encouraged to read the [Ballerina Code of Conduct](https://
 
 ## Useful Links
 
+* For more information go to the [`url` library](https://lib.ballerina.io/ballerina/url/latest).
+* For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
 * Chat live with us via our [Slack channel](https://ballerina.io/community/slack/).
 * Post all technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
