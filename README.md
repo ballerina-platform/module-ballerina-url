@@ -13,15 +13,15 @@ URL encoding stands for encoding certain characters in a URL by replacing them w
 
 The Ballerina `url` library facilitates APIs to encode and decode a URL or part of a URL.
 
-## Issues and Projects
+## Issues and projects
 
 Issues and Projects tabs are disabled for this repository as this is part of the Ballerina Standard Library. To report bugs, request new features, start new discussions, view project boards, etc., go to the [Ballerina Standard Library parent repository](https://github.com/ballerina-platform/ballerina-standard-library).
 
 This repository only contains the source code for the module.
 
-## Building from the Source
+## Build from the source
 
-### Setting Up the Prerequisites
+### Set up the prerequisites
 
 1. Download and install Java SE Development Kit (JDK) version 11 (from one of the following locations).
 
@@ -38,7 +38,7 @@ This repository only contains the source code for the module.
     export packagePAT=<Personal Access Token>
     ```
 
-### Building the Source
+### Build the source
 
 Execute the commands below to build from the source.
 
@@ -81,17 +81,17 @@ Execute the commands below to build from the source.
     ./gradlew clean build -PpublishToCentral=true
     ```
 
-## Contributing to Ballerina
+## Contribute to Ballerina
 
 As an open source project, Ballerina welcomes contributions from the community.
 
 For more information, go to the [contribution guidelines](https://github.com/ballerina-platform/ballerina-lang/blob/master/CONTRIBUTING.md).
 
-## Code of Conduct
+## Code of conduct
 
 All contributors are encouraged to read the [Ballerina Code of Conduct](https://ballerina.io/code-of-conduct).
 
-## Useful Links
+## Useful links
 
 * For more information go to the [`url` library](https://lib.ballerina.io/ballerina/url/latest).
 * For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
