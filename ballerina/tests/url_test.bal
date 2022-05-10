@@ -108,7 +108,6 @@ isolated function testUrlDecodeWithPercentageMark() returns Error? {
 isolated function testUrlDecodeWithTilde() returns Error? {
     string encodedUrl = "http%3A%2F%2Flocalhost%3A9090%2FechoService~abc";
     string result = check decode(encodedUrl, "UTF-8");
-    string expectedUrl = "http://localhost:9090/echoService~abc";
     test:assertEquals(result, "http://localhost:9090/echoService~abc");
     test:assertTrue(result.includes("~"));
 }
