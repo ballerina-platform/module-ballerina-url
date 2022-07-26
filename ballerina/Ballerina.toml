@@ -11,6 +11,6 @@ distribution = "2201.0.4"
 
 [[platform.java11.dependency]]
 groupId = "io.ballerina.stdlib"
- artifactId = "url-native"
- version = "2.2.3"
+artifactId = "url-native"
+version = "2.2.3"
 path = "../native/build/libs/url-native-2.2.3-SNAPSHOT.jar"
