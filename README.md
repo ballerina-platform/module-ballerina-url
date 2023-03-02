@@ -1,4 +1,4 @@
-Ballerina URL Library
+Ballerina URL Librar
 ===================
 
   [![Build](https://github.com/ballerina-platform/module-ballerina-url/actions/workflows/build-timestamped-master.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerina-url/actions/workflows/build-timestamped-master.yml)
