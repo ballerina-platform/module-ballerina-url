@@ -1,16 +1,19 @@
 [package]
 org = "ballerina"
 name = "url"
-version = "2.2.4"
+version = "2.3.0"
 authors = ["Ballerina"]
 keywords = ["url encoding", "url decoding"]
 repository = "https://github.com/ballerina-platform/module-ballerina-url"
 icon = "icon.png"
 license = ["Apache-2.0"]
-distribution = "2201.0.4"
+distribution = "2201.7.0"
+
+[platform.java11]
+graalvmCompatible = true
 
 [[platform.java11.dependency]]
 groupId = "io.ballerina.stdlib"
 artifactId = "url-native"
-version = "2.2.4"
-path = "../native/build/libs/url-native-2.2.4.jar"
+version = "2.3.0"
+path = "../native/build/libs/url-native-2.3.0-SNAPSHOT.jar"
