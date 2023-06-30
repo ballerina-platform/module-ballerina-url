@@ -16,4 +16,4 @@ graalvmCompatible = true
 groupId = "io.ballerina.stdlib"
 artifactId = "url-native"
 version = "2.3.0"
-path = "../native/build/libs/url-native-2.3.0-SNAPSHOT.jar"
+path = "../native/build/libs/url-native-2.3.0.jar"
