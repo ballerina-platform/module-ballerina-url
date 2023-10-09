@@ -29,7 +29,7 @@ import java.net.URLEncoder;
  *
  * @since 0.991.0
  */
-public class Encode {
+public final class Encode {
 
     public static Object encode(BString str, BString charset) {
         try {
@@ -56,4 +56,6 @@ public class Encode {
             return UrlUtils.createError("Error occurred while encoding. " + e.getMessage());
         }
     }
+
+    private Encode() {}
 }

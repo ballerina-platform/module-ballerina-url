@@ -30,7 +30,7 @@ import java.net.URLDecoder;
  *
  * @since 0.991.0
  */
-public class Decode {
+public final class Decode {
 
     public static Object decode(BString str, BString charset) {
         try {
@@ -39,4 +39,6 @@ public class Decode {
             return UrlUtils.createError("Error occurred while decoding. " + e.getMessage());
         }
     }
+
+    private Decode() {}
 }

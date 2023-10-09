@@ -21,7 +21,9 @@ package io.ballerina.stdlib.url;
 /**
  * Constants related to URL module.
  */
-public class Constants {
+public final class Constants {
 
     static final String URL_ERROR = "Error";
+
+    private Constants() {}
 }
