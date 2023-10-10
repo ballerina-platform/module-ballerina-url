@@ -28,9 +28,9 @@ import io.ballerina.runtime.api.Module;
  */
 public final class ModuleUtils {
 
-    private static Module urlModule;
-
     private ModuleUtils() {}
+
+    private static Module urlModule;
 
     public static void setModule(Environment env) {
         urlModule = env.getCurrentModule();

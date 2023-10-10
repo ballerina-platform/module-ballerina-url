@@ -31,6 +31,8 @@ import java.net.URLEncoder;
  */
 public final class Encode {
 
+    private Encode() {}
+
     public static Object encode(BString str, BString charset) {
         try {
             String encoded = URLEncoder.encode(str.getValue(), charset.getValue());
@@ -56,6 +58,4 @@ public final class Encode {
             return UrlUtils.createError("Error occurred while encoding. " + e.getMessage());
         }
     }
-
-    private Encode() {}
 }

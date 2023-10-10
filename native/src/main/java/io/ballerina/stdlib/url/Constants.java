@@ -23,7 +23,7 @@ package io.ballerina.stdlib.url;
  */
 public final class Constants {
 
-    static final String URL_ERROR = "Error";
-
     private Constants() {}
+
+    static final String URL_ERROR = "Error";
 }

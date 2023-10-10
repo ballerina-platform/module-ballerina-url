@@ -32,6 +32,8 @@ import java.net.URLDecoder;
  */
 public final class Decode {
 
+    private Decode() {}
+
     public static Object decode(BString str, BString charset) {
         try {
             return StringUtils.fromString(URLDecoder.decode(str.getValue(), charset.getValue()));
@@ -39,6 +41,4 @@ public final class Decode {
             return UrlUtils.createError("Error occurred while decoding. " + e.getMessage());
         }
     }
-
-    private Decode() {}
 }
