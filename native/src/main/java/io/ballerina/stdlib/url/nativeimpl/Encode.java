@@ -29,7 +29,9 @@ import java.net.URLEncoder;
  *
  * @since 0.991.0
  */
-public class Encode {
+public final class Encode {
+
+    private Encode() {}
 
     public static Object encode(BString str, BString charset) {
         try {

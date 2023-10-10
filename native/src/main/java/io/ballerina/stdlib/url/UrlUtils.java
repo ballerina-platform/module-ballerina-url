@@ -30,7 +30,9 @@ import static io.ballerina.stdlib.url.Constants.URL_ERROR;
  *
  * @since 0.990.3
  */
-public class UrlUtils {
+public final class UrlUtils {
+
+    private UrlUtils() {}
 
     public static BError createError(String errMsg) {
         return ErrorCreator.createDistinctError(URL_ERROR, ModuleUtils.getModule(), StringUtils.fromString(errMsg));
