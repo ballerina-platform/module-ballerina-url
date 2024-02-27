@@ -71,7 +71,6 @@ subprojects {
     }
 }
 
-
 def moduleVersion = project.version.replace("-SNAPSHOT", "")
 
 release {
