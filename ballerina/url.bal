@@ -22,9 +22,9 @@ import ballerina/jballerina.java;
 # string encoded = check url:encode(value, "UTF-8");
 # ```
 #
-# + value - String value to be encoded
-# + charset - The name of a supported character encoding
-# + return - The `string` value of the encoded string or an `url:Error` if an error occurred
+# + value - The string value to be encoded
+# + charset - The name of a supported character encoding (e.g., "UTF-8")
+# + return - The encoded string or an `url:Error` if an error occurred
 public isolated function encode(string value, string charset) returns string|Error = @java:Method {
     'class: "io.ballerina.stdlib.url.nativeimpl.Encode"
 } external;
@@ -35,9 +35,9 @@ public isolated function encode(string value, string charset) returns string|Err
 # string decoded = check url:decode(value, "UTF-8");
 # ```
 #
-# + value - String value to be decoded
-# + charset - The name of a supported character encoding
-# + return - The `string` value of the decoded string or an `url:Error` if an error occurred
+# + value - The string value to be decoded
+# + charset - The name of a supported character encoding (e.g., "UTF-8")
+# + return - The decoded string or an `url:Error` if an error occurred
 public isolated function decode(string value, string charset) returns string|Error = @java:Method {
     'class: "io.ballerina.stdlib.url.nativeimpl.Decode"
 } external;
