@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 - [Java classes changed to proper utilities](https://github.com/ballerina-platform/ballerina-standard-library/issues/4894)
+- [[#9111] Add `Type/Library` and `Area/Built-in` Keywords, Reformat README for Connector Store Discoverability](https://github.com/ballerina-platform/ballerina-library/issues/9111)
 
 ## [2.2.3] - 2022-11-29
 
