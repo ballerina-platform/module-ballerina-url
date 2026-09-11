@@ -1,7 +1,8 @@
 ## Overview
 
-This module provides the URL encoding/decoding functions.
+This module provides URL encoding and decoding functions. Encoding replaces certain characters in a URL with percent-encoded triplets, while decoding reverses the process.
 
-URL encoding stands for encoding certain characters in a URL by replacing them with one or more character triplets that consist of the percent character `%` followed by two hexadecimal digits. The two hexadecimal digits of the triplet(s) represent the numeric value of the replaced character.
+### Key Features
 
-The Ballerina `url` module facilitates APIs to encode and decode a URL or part of a URL.
+- URL encoding of strings and URL components
+- URL decoding of percent-encoded strings
