@@ -122,3 +122,22 @@ isolated function testInvalidDecode() {
         test:assertFail("Expected error not found.");
     }
 }
+
+@test:Config {
+    dataProvider: malformedEscapeData
+}
+isolated function testDecodeMalformedEscape(string value, string expectedReason) {
+    string|Error result = decode(value, "UTF-8");
+    if result is Error {
+        test:assertTrue(result.message().startsWith("Error occurred while decoding. "));
+        test:assertTrue(result.message().includes(expectedReason));
+    } else {
+        test:assertFail("Expected an error for malformed escape: " + value);
+    }
+}
+
+isolated function malformedEscapeData() returns [string, string][] => [
+    ["price%2Gfree", "Illegal hex characters"],
+    ["abc%ZZ", "Illegal hex characters"],
+    ["100%", "Incomplete trailing escape"]
+];
